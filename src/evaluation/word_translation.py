@@ -93,6 +93,8 @@ def get_word_translation_accuracy(lang1, word2id1, emb1, lang2, word2id2, emb2, 
         path = os.path.join(DIC_EVAL_PATH, '%s-%s.5000-6500.txt' % (lang1, lang2))
     else:
         path = dico_eval
+    if not os.path.isfile(path):
+        return
     dico = load_dictionary(path, word2id1, word2id2)
     dico = dico.cuda() if emb1.is_cuda else dico
 

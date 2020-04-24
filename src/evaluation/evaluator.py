@@ -119,7 +119,8 @@ class Evaluator(object):
                 method=method,
                 dico_eval=self.params.dico_eval
             )
-            to_log.update([('%s-%s' % (k, method), v) for k, v in results])
+            if results is not None:
+                to_log.update([('%s-%s' % (k, method), v) for k, v in results])
 
     def sent_translation(self, to_log):
         """
